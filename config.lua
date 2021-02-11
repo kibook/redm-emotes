@@ -24,6 +24,38 @@ Config.Emotes = {
 			flag = 1
 		}
 	},
+	["doggystyle1"] = {
+		name = "Sex (Doggy style): Bottom",
+		animation = {
+			dict = "script_story@mud3@ig@ig_1_throw_whore",
+			name = "base_vtm",
+			flag = 1
+		}
+	},
+	["doggystyle2"] = {
+		name = "Sex (Doggy style): Top",
+		animation = {
+			dict = "script_story@mud3@ig@ig_1_throw_whore",
+			name = "base_att",
+			flag = 1
+		}
+	},
+	["reversecowgirl1"] = {
+		name = "Sex (Reverse cowgirl): Top",
+		animation = {
+			dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
+			name = "loop_female",
+			flag = 1
+		}
+	},
+	["reversecowgirl2"] = {
+		name = "Sex (Reverse cowgirl): Bottom",
+		animation = {
+			dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
+			name = "loop_male",
+			flag = 1
+		}
+	},
 
 	-- Shared emotes
 	["dance"] = {
@@ -38,6 +70,38 @@ Config.Emotes = {
 			animation = {
 				dict = "cnv_camp@rchso@cnv@ccdtc33@player_karen",
 				name = "karen_dance_loop",
+				flag = 1
+			}
+		}
+	},
+	["doggystyle"] = {
+		name = "Sex (Doggy style)",
+		animation = {
+			dict = "script_story@mud3@ig@ig_1_throw_whore",
+			name = "base_att",
+			flag = 1
+		},
+		partner = {
+			offset = vector4(-0.05, 0.2, 0.0, 0.0),
+			animation = {
+				dict = "script_story@mud3@ig@ig_1_throw_whore",
+				name = "base_vtm",
+				flag = 1
+			}
+		}
+	},
+	["reversecowgirl"] = {
+		name = "Sex (Reverse cowgirl)",
+		animation = {
+			dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
+			name = "loop_male",
+			flag = 1
+		},
+		partner = {
+			offset = vector4(0.05, 0.0, 0.07, 170.0),
+			animation = {
+				dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
+				name = "loop_female",
 				flag = 1
 			}
 		}
