@@ -9,6 +9,7 @@ Config.SharedEmoteRejectControl = `INPUT_RELOAD`
 Config.Emotes = {
 	-- Solo emotes
 	["dance1"] = {
+		type = "solo",
 		name = "Dance: Lead",
 		animation = {
 			dict = "cnv_camp@rchso@cnv@ccdtc33@player_karen",
@@ -17,6 +18,7 @@ Config.Emotes = {
 		}
 	},
 	["dance2"] = {
+		type = "solo",
 		name = "Dance: Follow",
 		animation = {
 			dict = "cnv_camp@rchso@cnv@ccdtc33@player_karen",
@@ -27,6 +29,7 @@ Config.Emotes = {
 
 	-- Shared emotes
 	["dance"] = {
+		type = "shared",
 		name = "Dance",
 		animation = {
 			dict = "cnv_camp@rchso@cnv@ccdtc33@player_karen",
@@ -45,6 +48,7 @@ Config.Emotes = {
 
 	-- Prop emotes
 	["basket"] = {
+		type = "prop",
 		name = "Basket",
 		prop = {
 			model = "p_basket04x",
@@ -59,6 +63,7 @@ Config.Emotes = {
 		}
 	},
 	["parasol"] = {
+		type = "prop",
 		name = "Parasol",
 		prop = {
 			model = "p_parasol02x",
