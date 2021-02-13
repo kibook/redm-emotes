@@ -27,6 +27,7 @@ Config.Emotes = {
 		}
 	},
 	["doggystyle1"] = {
+		type = "solo",
 		name = "Sex (Doggy style): Bottom",
 		animation = {
 			dict = "script_story@mud3@ig@ig_1_throw_whore",
@@ -35,6 +36,7 @@ Config.Emotes = {
 		}
 	},
 	["doggystyle2"] = {
+		type = "solo",
 		name = "Sex (Doggy style): Top",
 		animation = {
 			dict = "script_story@mud3@ig@ig_1_throw_whore",
@@ -43,6 +45,7 @@ Config.Emotes = {
 		}
 	},
 	["reversecowgirl1"] = {
+		type = "solo",
 		name = "Sex (Reverse cowgirl): Top",
 		animation = {
 			dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
@@ -51,6 +54,7 @@ Config.Emotes = {
 		}
 	},
 	["reversecowgirl2"] = {
+		type = "solo",
 		name = "Sex (Reverse cowgirl): Bottom",
 		animation = {
 			dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
@@ -78,6 +82,7 @@ Config.Emotes = {
 		}
 	},
 	["doggystyle"] = {
+		type = "shared",
 		name = "Sex (Doggy style)",
 		animation = {
 			dict = "script_story@mud3@ig@ig_1_throw_whore",
@@ -94,6 +99,7 @@ Config.Emotes = {
 		}
 	},
 	["reversecowgirl"] = {
+		type = "shared",
 		name = "Sex (Reverse cowgirl)",
 		animation = {
 			dict = "script_story@sal1@ig@sal1_18_lenny_on_lenny",
