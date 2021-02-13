@@ -6,7 +6,21 @@ RegisterNetEvent("emotes:rejectSharedEmote")
 RegisterNetEvent("emotes:acceptSharedEmote")
 RegisterNetEvent("emotes:stopSharedEmote")
 
+function GetCompatibleAnim(ped, anim)
+	if anim.variants then
+		for _, variant in ipairs(anim.variants) do
+			if variant.isCompatible(ped) then
+				return variant
+			end
+		end
+	else
+		return anim
+	end
+end
+
 function PlayAnimation(ped, anim)
+	anim = GetCompatibleAnim(ped, anim)
+
 	if not DoesAnimDictExist(anim.dict) then
 		print("Invalid animation dictionary: " .. anim.dict)
 		return
@@ -28,11 +42,19 @@ function PlayAnimation(ped, anim)
 end
 
 function StopAnimation(ped, anim)
+	anim = GetCompatibleAnim(ped, anim)
+
 	StopAnimTask(ped, anim.dict, anim.name)
 
 	if anim.flag == 1 then
 		FreezeEntityPosition(ped, false)
 	end
+end
+
+function IsPlayingAnimation(ped, anim)
+	anim = GetCompatibleAnim(ped, anim)
+
+	return IsEntityPlayingAnim(ped, anim.dict, anim.name, anim.flag)
 end
 
 function CreateProp()
@@ -280,6 +302,39 @@ function EmoteCommand(source, args, raw)
 	end
 end
 
+function GetEmotes()
+	local soloEmotes = {}
+	local sharedEmotes = {}
+	local propEmotes = {}
+
+	for emote, info in pairs(Config.Emotes) do
+		if info.type == "solo" then
+			table.insert(soloEmotes, {name = info.name, command = emote})
+		elseif info.type == "shared" then
+			table.insert(sharedEmotes, {name = info.name, command = emote})
+		elseif info.type == "prop" then
+			table.insert(propEmotes, {name = info.name, command = emote})
+		end
+	end
+
+	table.sort(soloEmotes, function(a, b) return a.name < b.name end)
+	table.sort(sharedEmotes, function(a, b) return a.name < b.name end)
+	table.sort(propEmotes, function(a, b) return a.name < b.name end)
+
+	return {
+		{name = "Solo Emotes", emotes = soloEmotes},
+		{name = "Shared Emotes", emotes = sharedEmotes},
+		{name = "Prop Emotes", emotes = propEmotes},
+	}
+end
+
+function GetEmotesAsJson()
+	return json.encode(GetEmotes())
+end
+
+exports("getEmotes", GetEmotes)
+exports("getEmotesAsJson", GetEmotesAsJson)
+
 RegisterCommand("emote", EmoteCommand)
 RegisterCommand("e", EmoteCommand)
 
@@ -339,7 +394,7 @@ CreateThread(function()
 			local ped = PlayerPedId()
 			local anim = CurrentEmote.animation
 
-			if not IsEntityPlayingAnim(ped, anim.dict, anim.name, anim.flag) then
+			if not IsPlayingAnimation(ped, anim) then
 				PlayAnimation(ped, anim)
 			end
 
