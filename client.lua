@@ -36,7 +36,7 @@ function PlayAnimation(ped, anim)
 		FreezeEntityPosition(ped, true)
 	end
 
-	TaskPlayAnim(ped, anim.dict, anim.name, 1.0, 1.0, -1, anim.flag, 0, false, false, false, "", false)
+	TaskPlayAnim(ped, anim.dict, anim.name, 1.0, 1.0, -1, anim.flag, 0.0, false, false, false, "", false)
 
 	RemoveAnimDict(anim.dict)
 end
@@ -44,7 +44,7 @@ end
 function StopAnimation(ped, anim)
 	anim = GetCompatibleAnim(ped, anim)
 
-	StopAnimTask(ped, anim.dict, anim.name)
+	StopAnimTask(ped, anim.dict, anim.name, 1.0)
 
 	if anim.flag == 1 then
 		FreezeEntityPosition(ped, false)
