@@ -36,7 +36,7 @@ function PlayAnimation(ped, anim)
 		FreezeEntityPosition(ped, true)
 	end
 
-	TaskPlayAnim(ped, anim.dict, anim.name, 1.0, 1.0, -1, anim.flag, 0, false, false, false, "", false)
+	TaskPlayAnim(ped, anim.dict, anim.name, 1.0, 1.0, -1, anim.flag, 0.0, false, false, false, "", false)
 
 	RemoveAnimDict(anim.dict)
 end
@@ -44,7 +44,7 @@ end
 function StopAnimation(ped, anim)
 	anim = GetCompatibleAnim(ped, anim)
 
-	StopAnimTask(ped, anim.dict, anim.name)
+	StopAnimTask(ped, anim.dict, anim.name, 1.0)
 
 	if anim.flag == 1 then
 		FreezeEntityPosition(ped, false)
@@ -277,7 +277,9 @@ function StopUsingEmote()
 		DeleteObject(emote.prop.handle)
 	end
 
-	StopAnimation(ped, emote.animation)
+	if emote.animation then
+		StopAnimation(ped, emote.animation)
+	end
 
 	if emote.partner then
 		if IsPedAPlayer(emote.partner.ped) then
@@ -394,7 +396,7 @@ CreateThread(function()
 			local ped = PlayerPedId()
 			local anim = CurrentEmote.animation
 
-			if not IsPlayingAnimation(ped, anim) then
+			if anim and not IsPlayingAnimation(ped, anim) then
 				PlayAnimation(ped, anim)
 			end
 
