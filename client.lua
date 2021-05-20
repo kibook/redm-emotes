@@ -7,7 +7,7 @@ RegisterNetEvent("emotes:acceptSharedEmote")
 RegisterNetEvent("emotes:stopSharedEmote")
 
 function GetCompatibleAnim(ped, anim)
-	if anim.variants then
+	if anim and anim.variants then
 		for _, variant in ipairs(anim.variants) do
 			if variant.isCompatible(ped) then
 				return variant
@@ -291,7 +291,7 @@ end
 function DrawSharedEmoteRequestText()
 	local player = GetPlayerFromServerId(SharedEmoteRequest.player)
 	local pos = GetEntityCoords(GetPlayerPed(player))
-	DrawText3D(pos.x, pos.y, pos.z, GetPlayerName(player) .. " wants to use " .. SharedEmoteRequest.emote.name .. ". Press [E] to accept, or [R] to reject. Expires in " .. math.floor(SharedEmoteRequest.expires - GetSystemTime() / 1000) .. "s...")
+	DrawText3D(pos.x, pos.y, pos.z, GetPlayerName(player) .. " wants to use " .. SharedEmoteRequest.emote.name .. ". Press [E] to accept, or [R] to reject. Expires in " .. math.floor((SharedEmoteRequest.expires - GetSystemTime()) / 10000) .. "s...")
 end
 
 function EmoteCommand(source, args, raw)
