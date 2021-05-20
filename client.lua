@@ -277,7 +277,9 @@ function StopUsingEmote()
 		DeleteObject(emote.prop.handle)
 	end
 
-	StopAnimation(ped, emote.animation)
+	if emote.animation then
+		StopAnimation(ped, emote.animation)
+	end
 
 	if emote.partner then
 		if IsPedAPlayer(emote.partner.ped) then
@@ -394,7 +396,7 @@ CreateThread(function()
 			local ped = PlayerPedId()
 			local anim = CurrentEmote.animation
 
-			if not IsPlayingAnimation(ped, anim) then
+			if anim and not IsPlayingAnimation(ped, anim) then
 				PlayAnimation(ped, anim)
 			end
 
