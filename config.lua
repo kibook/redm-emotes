@@ -78,7 +78,16 @@ Config.Emotes = {
 			dict = "amb_creature_mammal@world_dog_barking_up@base",
 			name = "base",
 			flag = 1
-		},
+		}
+	},
+	["dogbeg"] = {
+		type = "solo",
+		name = "Dog: Beg",
+		animation = {
+			dict = "amb_creature_mammal@world_dog_begging@idle",
+			name = "idle_a",
+			flag = 1
+		}
 	},
 	["dogrest"] = {
 		type = "solo",
@@ -112,6 +121,15 @@ Config.Emotes = {
 		name = "Dog: Sleep",
 		animation = {
 			dict = "amb_creature_mammal@world_dog_sleeping@base",
+			name = "base",
+			flag = 1
+		}
+	},
+	["dogsniff"] = {
+		type = "solo",
+		name = "Sniff",
+		animation = {
+			dict = "amb_creature_mammal@world_dog_sniffing_ground@base",
 			name = "base",
 			flag = 1
 		}
@@ -270,6 +288,36 @@ Config.Emotes = {
 			dict = "amb_creature_mammal@prop_dog_eat_bone@base",
 			name = "base",
 			flag = 1
+		}
+	},
+	["fan"] = {
+		type = "prop",
+		name = "Fan (right hand)",
+		prop = {
+			model = "p_cs_fan01x",
+			bone = "skel_r_hand",
+			position = vector3(0.1, 0, -0.035),
+			rotation = vector3(0, 150, -9)
+		},
+		animation = {
+			dict = "amb_wander@code_human_fan_wander@female_a@base",
+			name = "base",
+			flag = 25
+		}
+	},
+	["fan2"] = {
+		type = "prop",
+		name = "Fan (left hand)",
+		prop = {
+			model = "p_cs_fan01x",
+			bone = "skel_l_hand",
+			position = vector3(0.07, 0.02, 0.04),
+			rotation = vector3(-20, 0, 0)
+		},
+		animation = {
+			dict = "amb_camp@prop_camp_marybeth_seat_chair@fan@female_a@base",
+			name = "base",
+			flag = 25
 		}
 	},
 	["parasol"] = {
