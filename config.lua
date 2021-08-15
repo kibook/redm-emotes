@@ -222,7 +222,22 @@ Config.Emotes = {
 	},
 	["fan"] = {
 		type = "prop",
-		name = "Fan",
+		name = "Fan (right hand)",
+		prop = {
+			model = "p_cs_fan01x",
+			bone = "skel_r_hand",
+			position = vector3(0.1, 0, -0.035),
+			rotation = vector3(0, 150, -9)
+		},
+		animation = {
+			dict = "amb_wander@code_human_fan_wander@female_a@base",
+			name = "base",
+			flag = 25
+		}
+	},
+	["fan2"] = {
+		type = "prop",
+		name = "Fan (left hand)",
 		prop = {
 			model = "p_cs_fan01x",
 			bone = "skel_l_hand",
