@@ -197,6 +197,23 @@ Config.Emotes = {
 			}
 		}
 	},
+	["hostage"] = {
+		type = "shared",
+		name = "Take Hostage",
+		animation = {
+			dict = "mech_grapple@blade@_male@_ambient@_healthy@back@loco@attacker",
+			name = "idle",
+			flag = 1
+		},
+		partner = {
+			offset = vector4(0, 0.2, 0, 0),
+			animation = {
+				dict = "mech_grapple@blade@_male@_ambient@_healthy@back@loco@victim",
+				name = "idle",
+				flag = 1
+			}
+		}
+	},
 	["pet"] = {
 		type = "shared",
 		name = "Pet Dog (Standing)",
